@@ -29,7 +29,7 @@ The goals / steps of this project are the following:
 [image10]: ./test_writeup/Stop.jpg "Traffic Sign 3"
 [image11]: ./test_writeup/No_Entry.jpg "Traffic Sign 4"
 [image12]: ./test_writeup/Priority_road.jpg "Traffic Sign 5"
-
+[image13]: ./examples/SoftMax.jpg "Soft Max"
 ---
 ### Writeup / README
 
@@ -112,9 +112,9 @@ I trained my model by tuning the following parameters to identify the set of par
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of 0.939
-* validation set accuracy of X
-* test set accuracy of 0.6
+* training set accuracy of 0.999
+* validation set accuracy of 0.939
+* test set accuracy of 0.928
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -188,5 +188,3 @@ For the second image, the model is relatively sure that this is a stop sign, and
 
 
 The histogram results of the softmax probabilties are below and the code can be found at the end of the project code.
-
-TODO
