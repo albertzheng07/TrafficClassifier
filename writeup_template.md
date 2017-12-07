@@ -17,14 +17,18 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image1]: ./examples/Data_Sets_Hist.jpg "Visualization"
+[image2]: ./examples/Bicycles_crossing_visual.jpg "Bicycles_crossing_visual"
+[image3]: ./examples/No_vehicles_visual.jpg "No_vehicles_visual"
+[image4]: ./examples/Slippery_road_visual.jpg "Slippery_road_visual"
+[image5]: ./examples/Speed_limit_(100km_h)_visual.jpg "Speed_limit_100km_h_visual"
+[image6]: ./examples/Grayscale.jpg "Grayscaling"
+[image7]: ./examples/Normalization.jpg "Normalization"
+[image8]: ./test_writeup/Yield.jpg "Traffic Sign 1"
+[image9]: ./test_writeup/30km.jpg "Traffic Sign 2"
+[image10]: ./test_writeup/Stop.jpg "Traffic Sign 3"
+[image11]: ./test_writeup/No_Entry.jpg "Traffic Sign 4"
+[image12]: ./test_writeup/Priority_road.jpg "Traffic Sign 5"
 
 ---
 ### Writeup / README
@@ -50,20 +54,25 @@ The following is a summary of the training, test, and validation data.
 
 ![alt text][image1]
 
-### Design and Test a Model Architecture
+Here are a few of the example images for some of the sign types from the training data before pre-processing.
 
+![alt text][image2]
+
+![alt text][image3]
+
+![alt text][image4]
+
+![alt text][image5]
+
+### Design and Test a Model Architecture
 
 Here is an example of a traffic sign image before and after grayscaling.
 
-TODO
+![alt text][image6]
 
-![alt text][image2]
+Here is an example of an image before and after gray scale and normalization.
 
-TODO
-
-Here is an example of an image before and after normalization.
-
-![alt text][image2]
+![alt text][image7]
 
 I attempted to generate additional data by resizing the image to a larger image dimension such as 64x64. This technique did not improvement my training accuracy when I attempted this.
 
@@ -132,12 +141,10 @@ TODO
 
 Here are five German traffic signs that I found on the web:
 
-TODO
+![alt text][image8] ![alt text][image9] ![alt text][image10]
+![alt text][image11] ![alt text][image12]
 
-![alt text][image4] ![alt text][image5] ![alt text][image6]
-![alt text][image7] ![alt text][image8]
-
-The first image might be difficult to classify because ...
+The fifth image will probably the most difficult to classify since the image is cut off on the bottom which doesn't outline the entire diamond shape of the yield sign.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
