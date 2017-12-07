@@ -29,7 +29,11 @@ The goals / steps of this project are the following:
 [image10]: ./test_writeup/Stop.jpg "Traffic Sign 3"
 [image11]: ./test_writeup/No_Entry.jpg "Traffic Sign 4"
 [image12]: ./test_writeup/Priority_road.jpg "Traffic Sign 5"
-[image13]: ./examples/SoftMax.jpg "Soft Max"
+[image13]: ./examples/Yield_softmax.png "Soft Max"
+[image14]: ./examples/Speed_limit_(30km_h)_softmax.png "30 km Soft Max"
+[image15]: ./examples/Stop_softmax.png "Stop Soft Max"
+[image16]: ./examples/No_entry_softmax.png "No Entry Soft Max"
+[image17]: ./examples/Priority_road_softmax.png "Priority Soft Max"
 ---
 ### Writeup / README
 
@@ -188,3 +192,13 @@ For the second image, the model is relatively sure that this is a stop sign, and
 
 
 The histogram results of the softmax probabilties are below and the code can be found at the end of the project code.
+
+![alt text][image13]
+
+![alt text][image14]
+
+![alt text][image15]
+
+![alt text][image16]
+
+![alt text][image17]
