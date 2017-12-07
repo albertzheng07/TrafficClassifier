@@ -34,6 +34,7 @@ The goals / steps of this project are the following:
 [image15]: ./examples/Stop_softmax.png "Stop Soft Max"
 [image16]: ./examples/No_entry_softmax.png "No Entry Soft Max"
 [image17]: ./examples/Priority_road_softmax.png "Priority Soft Max"
+
 ---
 ### Writeup / README
 
