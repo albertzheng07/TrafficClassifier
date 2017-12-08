@@ -38,7 +38,7 @@ The goals / steps of this project are the following:
 ---
 ### Writeup / README
 
-Here is a link to my [project code](https://github.com/albertzheng07/TrafficClassifier)
+Here is a link to my [project code](https://github.com/albertzheng07/TrafficClassifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 
@@ -114,31 +114,22 @@ I trained my model by tuning the following parameters to identify the set of par
 |	Batch Size				|		120									|
 
 
-#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93.
 
 My final model results were:
 * training set accuracy of 0.999
 * validation set accuracy of 0.939
 * test set accuracy of 0.928
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
-
 The baseline architecture selected was the LeNet model. I believed it would perfectly setup to classify traffic signs because it already was designed to classify images that were sized as 32x32. The initial test without tuning any parameters showed that the model was 90% accurate already.
 
-The main adjustment that I made to the architecture was the increase the size of the filters which was based on the intuition more filters would be able to assist in classifying the data. I was careful not to overload the layer with filters in the case of overfitting. I decided to limit the number of filters rather than include additional layers such as dropout layers. I found  
+Although the baseline model was fairly accurate, increasing the outer parameters of learning rate and epoch alone did not improve the performance to be greater than 93%. I found that I had to touch the inner layers in order to gain better performance of the model.
 
-TODO
+The main adjustment that I made to the architecture was the increase the size of the filters which was based on the intuition more filters would be able to assist in classifying the data. I was careful not to overload the layer with filters in the case of overfitting. I decided to limit the number of filters rather than include additional layers such as dropout layers. I found that increase the number of filters in the first Convolution Layer to 36 from 8 was a major improvement. In addition, I also increased the size of filters in the second Convolution layer to 48 which also provided benefit in performance.
 
+I also tuned the epoch in order to run the optimizer over the model to give the model more time than the baseline of 10 to propagate back and forth through the model and let the weighting parameters be learned with sufficient amount of search.
+
+I think the main design choice of a using multiple Convolution layers was important is because convolution layers can handle multi-dimensional inputs well. In addition, convolution layers use filters in local regions of the input volume which is great for images. Images have so many small regions which you can connect with neurons in the Convolution layer framework.
 
 ### Test a Model on New Images
 
@@ -164,32 +155,62 @@ Here are the results of the prediction:
 | Stop			| Stop      							|
 
 
-The model was able to correctly guess 3 of the 5 traffic signs, which gives an accuracy of 80%. This actually compares worse to the accuracy on the test set of 12610.
+The model was able to correctly guess 3 of the 5 traffic signs, which gives an accuracy of 60%. This actually compares worse to the accuracy on the test set of 12610.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-For the first image, the model is somewhat sure that this is a 30 km/h speed sign, and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is very sure that this is a 120 km/h speed sign, but image is a 30 km/h sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
-| .40         			| 30 km/h sign   									|
-| .40     				| 30 km/h sign 										|
-| .17 					| 100 km/h sign											|
-| .02	      			| 70 km/h sign 					 				|
-| .01				    | 50 km/h sign      							|
+| .80         			| 120 km/h sign   									|
+| .18     				| 30 km/h sign 										|
+| .08 					| 100 km/h sign											|
+| .03	      			| 70 km/h sign 					 				|
+| .01				    | 80 km/h sign      							|
 
 
-TODO
-
-For the second image, the model is relatively sure that this is a stop sign, and the image does contain a stop sign. The top five soft max probabilities were
+For the second image, the model is very sure that this is a Children crossing sign, but the image priority road sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
-| .60         			| Stop sign   									|
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| 1.0         			| Children crossing sign  									|
+| 0.0     				| Bicycles crossing sign										|
+| 0.0					| Priority road	sign										|
+| 0.0	      			| No vehicles sign 					 				|
+| 0.0				    | Right of the way at the intersection sign      							|
+
+For the third image, the model is confident that this was a no entry sign, and the image does contain a no entry sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 1.0         			| No entry sign   									|
+| 0.0     				| Ahead sign 										|
+| 0.0 					| No Turn Left Ahead sign											|
+| 0.0	      			| Speed Limit (60km/h) sign 					 				|
+| 0.0				    | Roundabout mandatory sign
+
+
+For the fourth image, the model is confident that this was a yield sign, and the image does contain a yield sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 1.0         			| Yield sign   									|
+| 0.0     				| Ahead sign 										|
+| 0.0 					| No vehicles sign											|
+| 0.0	      			| Speed Limit (60km/h) sign 					 				|
+| 0.0				    | No passing sign      							|
+
+For the fifth image, the model is confident that this was a stop sign, and the image does contain a stop sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 1.0         			| Stop sign   									|
+| 0.0     				| No entry sign 										|
+| 0.0 					| Priority road  sign											|
+| 0.0	      			| Speed Limit (30km/h) sign 					 				|
+| 0.0				    | Speed Limit (70km/h) sign      							|
+
 
 
 The histogram results of the softmax probabilties are below and the code can be found at the end of the project code.
